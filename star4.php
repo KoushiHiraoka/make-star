@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>make star3</title>
+        <title>make star4</title>
     </head>
 
     <body>
         <?php 
-        $count=1;
 
-        for($mainloop=0;$mainloop<=4;$mainloop++){
-            if($count%4==1){
+        $total = 5;
 
-                for($loop1=0;$loop1<=3;$loop1++){
-                    echo '　';
-                }
-                for($loop2=0;$loop2<=4-$loop1;$loop2++){
-                    echo '⭐︎';
-                }
-                echo '<br/>';
-                $count++;
-    
-            }else if($count%2==0){
-    
-                for($loop1=0;$loop1<=1;$loop1++){
-                    echo '　';
-                }
-                for($loop2=0;$loop2<=4-$loop1;$loop2++){
-                    echo '⭐︎';
-                }
-                echo '<br/>';
-                $count++;
-    
+        for($loop = 1;$loop<=$total;$loop++){
+            printStar($total,$loop);
+        }
+
+        function getStarNumber($base){
+            $distance = abs($base - 3);
+            if ($distance==2){
+                return 0;
+            }else if($distance==1){
+                return 2;
             }else{
-    
-                for($loop2=0;$loop2<=4;$loop2++){
-                    echo '⭐︎';
-                }
-                echo '<br/>';
-                $count++;
-    
+                return 4;
             }
         }
 
+        function printStar($total,$loop){
+            $i = 0;
+            while($i<$total){
+                
+                if($i>=getStarNumber($loop)){
+                    echo '⭐︎';
+                }else{
+                    echo '　';
+                }
+                $i++;
+            }
+
+                echo '<br/>';
+        }
         ?>
+
     </body>
 
 
